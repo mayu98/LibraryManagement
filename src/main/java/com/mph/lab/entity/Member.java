@@ -1,5 +1,7 @@
 package com.mph.lab.entity;
 
+/*member Id : 00000
+password : admin*/
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

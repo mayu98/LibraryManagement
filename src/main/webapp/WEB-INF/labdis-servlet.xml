@@ -60,12 +60,13 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="books" class="com.mph.lab.Books"></bean>
-	<bean id="member" class="com.mph.lab.Member"></bean>
-	<bean id="issueReturn" class="com.mph.lab.IssueReturn"></bean>
-	<bean id="bookDaoImpl " class="com.mph.lab.dao.BookDaoImpl "></bean>
-	<bean id="memberDaoImpl " class=" com.mph.lab.dao.MemberDaoImpl "></bean>
-	<bean id="labServiceImpl" class=" com.mph.lab.service.LabServiceImpl"></bean>
+	<bean id="books" class="com.mph.lab.entity.Books"></bean>
+	<bean id="member" class="com.mph.lab.entity.Member"></bean>
+	<bean id="issueReturn" class="com.mph.lab.entity.IssueReturn"></bean>
+	
+	<bean id="bookDao " class="com.mph.lab.dao.BookDaoImpl "></bean>
+	<bean id="memberDao" class=" com.mph.lab.dao.MemberDaoImpl "></bean>
+	<bean id="labService" class=" com.mph.lab.service.LabServiceImpl"></bean>
 	
 	
 	
