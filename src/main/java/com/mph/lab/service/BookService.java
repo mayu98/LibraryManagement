@@ -1,10 +1,10 @@
-package com.mph.lab.dao;
+package com.mph.lab.service;
 
 import java.util.List;
 
 import com.mph.lab.entity.Books;
 
-public interface BookDao {
+public interface BookService {
 	
 	public void addBook(Books books);
 	public List<Books> getAllBooks();

@@ -14,8 +14,8 @@
 	<context:component-scan base-package="com.mph.lab.*"></context:component-scan>
 		<context:property-placeholder
 		location="classpath:database.properties" />
-		<context:property-placeholder
-		location="classpath:log4j.properties" />
+		<!-- <context:property-placeholder
+		location="classpath:log4j.properties" /> -->
 	<mvc:annotation-driven />
 	<tx:annotation-driven/>
 
@@ -64,9 +64,10 @@
 	<bean id="member" class="com.mph.lab.entity.Member"></bean>
 	<bean id="issueReturn" class="com.mph.lab.entity.IssueReturn"></bean>
 	
-	<bean id="bookDao " class="com.mph.lab.dao.BookDaoImpl "></bean>
+	<!-- <bean id="bookDao " class="com.mph.lab.dao.BookDaoImpl "></bean>
 	<bean id="memberDao" class=" com.mph.lab.dao.MemberDaoImpl "></bean>
-	<bean id="labService" class=" com.mph.lab.service.LabServiceImpl"></bean>
+	<bean id="memberService" class=" com.mph.lab.service.MemberServiceImpl"></bean>
+	<bean id="bookService" class=" com.mph.lab.service.BookServiceImpl"></bean> -->
 	
 	
 	

@@ -20,6 +20,13 @@ import com.mph.lab.entity.Member;
 public class MemberDaoImpl implements MemberDao {
 	@Autowired
 	SessionFactory sessionFactory;
+	String memberName = null;
+	 int memberId;
+
+	public MemberDaoImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	protected Session getSession() {
 		return (Session) sessionFactory.getCurrentSession();
@@ -34,7 +41,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public String login(Member member) {
-		String memberName = null;
+		
 		Criteria c = getSession().createCriteria(Member.class);
 		Criterion criterion = Restrictions.eq("memberId", member.getMemberId());
 		Criterion criterion2 = Restrictions.eq("password", member.getPassword());
@@ -45,8 +52,9 @@ public class MemberDaoImpl implements MemberDao {
 		for (Iterator i = mem.iterator(); i.hasNext();) {
 			Member member1 = (Member) i.next();
 			memberName = member1.getName();
+			memberId=member1.getMemberId();
 		}
-		System.out.println(memberName.toUpperCase());
+		System.out.println(memberName.toUpperCase()+memberId);
 		return memberName.toUpperCase();
 	}
 
@@ -77,6 +85,14 @@ public class MemberDaoImpl implements MemberDao {
 		query.setParameter("memberId", memId);
 		query.executeUpdate();
 		return getAllMembers();
+	}
+
+	@Override
+	public List<Member> getMember(int memberId) {
+		Criteria c = getSession().createCriteria(Member.class);
+		c.add(Restrictions.eq("memberId", memberId));
+		
+		return c.list();
 	}
 	
 	

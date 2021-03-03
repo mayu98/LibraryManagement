@@ -1,5 +1,6 @@
 package com.mph.lab.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,8 +8,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="LmsBook")
-public class Books {
+public class Books implements Serializable {
 	@Id
+ @Column(name = "BOOKID",insertable = true,nullable = false)
 	private String bookId;	
 	@Column
 	private String bookName;
@@ -16,10 +18,10 @@ public class Books {
 	private String  author;
 		@Column
 	private int  bookCount ;
-	  public Books() {
-		  
-		  
-	  }
+		
+	  public Books() {	  }
+	  
+	  
 	public Books(String bookId, String bookName, String author, int bookCount) {
 		super();
 		this.bookId = bookId;
