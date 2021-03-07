@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mph.lab.dao.MemberDao;
+import com.mph.lab.entity.IssueReturn;
 import com.mph.lab.entity.Member;
 
 @Service
-@Transactional
+@Transactional(transactionManager = "transactionManager")
 public class MemberServiceImpl  implements MemberServiceInterface{
 	@Autowired
 	MemberDao memberDao;
@@ -23,9 +24,9 @@ public class MemberServiceImpl  implements MemberServiceInterface{
 	}
 
 	@Override
-	public String login(Member member) {
+	public Member login(int memberId,String password) {
 		
-		return memberDao.login(member);
+		return memberDao.login(memberId,password);
 	}
 
 	@Override
@@ -52,4 +53,19 @@ public class MemberServiceImpl  implements MemberServiceInterface{
 		return memberDao.getMember(memberId);
 	}
 
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

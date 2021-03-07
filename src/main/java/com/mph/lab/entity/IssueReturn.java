@@ -9,10 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LabIssueReturn")
+@Table(name = "LABISSUERETURN")
 public class IssueReturn {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,9 +22,11 @@ public class IssueReturn {
 	private Date issueDate;
 	@Column(nullable = false)
 	private Date returnDate;
-	@Column
+	
+	@Column(nullable = false)
 	private String bookId;
-	@Column
+	
+	@Column(nullable = false)
 	private int memberId;
 	
 	public IssueReturn() {}
@@ -59,20 +62,20 @@ public class IssueReturn {
 		this.returnDate = returnDate;
 	}
 
-	public String getBook() {
+	public String getBookId() {
 		return bookId;
 	}
 
-	public void setBook(String book) {
-		this.bookId = book;
+	public void setBook(String bookId) {
+		this.bookId = bookId;
 	}
 
-	public int getMember() {
+	public int getMemberId() {
 		return memberId;
 	}
 
-	public void setMember(int member) {
-		this.memberId = member;
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
 
 	@Override

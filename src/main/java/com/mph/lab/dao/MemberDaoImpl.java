@@ -1,7 +1,9 @@
 package com.mph.lab.dao;
 
-import java.util.Iterator;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -13,7 +15,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+import com.mph.lab.entity.IssueReturn;
 import com.mph.lab.entity.Member;
 
 @Repository
@@ -40,22 +42,15 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public String login(Member member) {
+	public Member login(int memberId,String password) {
 		
 		Criteria c = getSession().createCriteria(Member.class);
-		Criterion criterion = Restrictions.eq("memberId", member.getMemberId());
-		Criterion criterion2 = Restrictions.eq("password", member.getPassword());
-		Criterion criterion3 = Restrictions.and(criterion, criterion2);
-		c.add(criterion3);
-		List mem = c.list();
-		System.out.println(mem);
-		for (Iterator i = mem.iterator(); i.hasNext();) {
-			Member member1 = (Member) i.next();
-			memberName = member1.getName();
-			memberId=member1.getMemberId();
-		}
-		System.out.println(memberName.toUpperCase()+memberId);
-		return memberName.toUpperCase();
+		Criterion criterion = Restrictions.eq("memberId", memberId);		
+		 Criterion criterion2 = Restrictions.eq("password", password);
+		 Criterion criterion3 = Restrictions.and(criterion, criterion2);		
+		c.add(criterion3);		 
+		return (Member) c.uniqueResult();
+		
 	}
 
 	@Override
@@ -87,6 +82,7 @@ public class MemberDaoImpl implements MemberDao {
 		return getAllMembers();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<Member> getMember(int memberId) {
 		Criteria c = getSession().createCriteria(Member.class);
@@ -94,6 +90,21 @@ public class MemberDaoImpl implements MemberDao {
 		
 		return c.list();
 	}
+
+	
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

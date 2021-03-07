@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mph.lab.dao.BookDao;
 import com.mph.lab.entity.Books;
+import com.mph.lab.entity.Member;
 
 @Service
 @Transactional(transactionManager = "transactionManager")
@@ -43,6 +44,21 @@ public class BookServiceImpl  implements BookService{
 	public List<Books> getAbook(String bookId) {
 	
 		return bookDao.getAbook(bookId);
+	}
+	@Override
+	public List allIssuedBooks() {
+	
+		return bookDao.allIssuedBooks();
+	}
+	@Override
+	public Member adminLogin(String password) {
+		return bookDao.adminLogin(password);
+		
+	}
+	@Override
+	public List<Books> getAvailableBooks() {
+		
+		return bookDao.getAvailableBooks();
 	}
 
 }

@@ -1,10 +1,15 @@
 package com.mph.lab.entity;
 
-/*member Id : 00000
-password : admin*/
+
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,11 @@ public class Member {
 	private String email;
 @Column
 	private String phoneNumber;
+
+	/*
+	 * @OneToMany(mappedBy = "LabMember") private Set<IssueReturn> issuereturn=new
+	 * HashSet<IssueReturn>();
+	 */
 
 	public Member() {
 	}

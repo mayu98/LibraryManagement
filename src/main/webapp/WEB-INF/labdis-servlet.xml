@@ -18,6 +18,7 @@
 		location="classpath:log4j.properties" /> -->
 	<mvc:annotation-driven />
 	<tx:annotation-driven/>
+	 <mvc:default-servlet-handler />
 
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
