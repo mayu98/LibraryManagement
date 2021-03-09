@@ -88,10 +88,8 @@ public class BookDaoImpl  implements BookDao {
 
 	@Override
 	public Member  adminLogin(String password) {
-		Criteria c = getSession().createCriteria(Member.class);
-		// criterion = Restrictions.eq("memberId", member.getMemberId());
-		Criterion criterion2 = Restrictions.eq("password", password);
-		//Criterion criterion3 = Restrictions.and(criterion, criterion2);
+		Criteria c = getSession().createCriteria(Member.class);		
+		Criterion criterion2 = Restrictions.eq("password", password);		
 		c.add(criterion2);
 		return (Member) c.uniqueResult();
 		

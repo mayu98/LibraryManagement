@@ -16,16 +16,13 @@ public class Books implements Serializable {
 	@Id
  @Column(name = "BOOKID",insertable = true,nullable = false)
 	private String bookId;	
-	@Column
+	@Column(nullable = false)
 	private String bookName;
-	@Column
+	@Column(nullable = false)
 	private String  author;
-		@Column
+		@Column(nullable = false)
 	private int  bookCount ;
-	/*
-	 * @OneToMany(mappedBy = "LmsBook") private Set<IssueReturn> issuereturn=new
-	 * HashSet<IssueReturn>();
-	 */
+	
 		
 	  public Books() {	  }
 	  

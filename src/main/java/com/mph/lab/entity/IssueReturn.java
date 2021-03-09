@@ -20,6 +20,7 @@ public class IssueReturn {
 	private int id;
 	@Column(nullable = false)
 	private Date issueDate;
+	
 	@Column(nullable = false)
 	private Date returnDate;
 	

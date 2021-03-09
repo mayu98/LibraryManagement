@@ -77,19 +77,7 @@ public  ResponseEntity<List<Member>> getAmember(@PathVariable("memId") int membe
 	
 }
 
-/*
- * @PostMapping("/issueBook") public String issueBook(@RequestBody IssueReturn
- * issueReturn) { System.out.println("Controller"+issueReturn); return
- * memberService.issueBook(issueReturn);
- * 
- * }
- * 
- * @PostMapping("/returnbook") public String returnBook(@RequestBody IssueReturn
- * issueReturn) { System.out.println("Controller"+issueReturn); return
- * memberService.returnBook(issueReturn);
- * 
- * }
- */
+
 
 
 
