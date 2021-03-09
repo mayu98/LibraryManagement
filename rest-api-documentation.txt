@@ -1,0 +1,542 @@
+swagger: "2.0"
+info:
+  description: "We are making the Library Management System. This is the web based application in which we are preforming the Basic opreation"
+  version: "1.0.0"
+  title: "Library Management System"
+  termsOfService: ""
+  contact:
+    email: "apiteam@swagger.io"
+  
+host: "Library.Management.io"
+
+tags:
+- name: "Book"
+  description: "Everything about our Books in Library"
+  externalDocs:
+    description: "Find out more"
+    url: "http://localhost:8089/LibraryManage/"
+- name: "Books"
+  description: "Access to books in our library"
+- name: "Member"
+  description: "Operations about Member"
+  externalDocs:
+    description: "Find out more about our Library"
+    url: "http://localhost:8089/LibraryManage/"
+schemes:
+
+- "http"
+paths:
+  /addBooks:
+    post:
+      tags:
+      - "Books"
+      summary: "Add a new book to the Library"
+      description: "adding new book"
+      operationId: "addbook"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "addBook"
+        description: "book object that needs to be added to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Books"
+      responses:
+        "200":
+          description: "book added successfully"
+  
+  /updateBooks:   
+    put:
+      tags:
+      - "Books"
+      summary: "Update an existing books"
+      description: ""
+      operationId: "updatebook"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "updatebook"
+        description: "book object that needs to be updated to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Books"
+      responses:
+        "200":
+          description: "book updated successfully"
+        "404":
+          description: "book not found"
+        "405":
+          description: "Validation exception"
+          
+          
+ 
+  /getAllBooks:
+    get:
+      tags:
+      - "Books"
+      summary: "to get all books in the library"
+      description: "printing all books"
+      operationId: "getAllBooks"
+      parameters:
+      - in: "body"
+        name: "getAllBooks"
+        description: "to dispalay all the Books"
+        required: true
+        schema:
+          $ref: "#/definitions/Books"
+      responses:
+        "200":
+          description: "all books are printing"
+          
+  /deleteBooks:
+    delete:
+      tags:
+      - "Books"
+      summary: "to delete a  book in the Library"
+      description: "deleting book"
+      operationId: "deleteBook"
+     
+      
+      
+      parameters:
+      - in: "body"
+        name: "deleteBook"
+        description: "book object that needs to be deleted to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/books"
+      responses:
+        "200":
+          description: "book deleted successfully"
+          
+          
+          
+  /getABooks:
+    get:
+      tags:
+      - "Books"
+      summary: "to get a book in the library"
+      description: "printing a book"
+      operationId: "getABooks"
+      parameters:
+      - in: "body"
+        name: "getABook"
+        description: "to dispalay a Book"
+        required: true
+        schema:
+          $ref: "#/definitions/Books"
+      responses:
+        "200":
+          description: "a book is printing"
+  
+          
+         
+
+  /registerMember:
+    post:
+      tags:
+      - "Member"
+      summary: "Add a new member to the Library"
+      description: "adding new member"
+      operationId: "registerMember"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "registerMember"
+        description: "Member object that needs to be added to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Member"
+      responses:
+        "200":
+          description: "Member added successfully"
+          
+          
+          
+  /loginMember/{memberId}/{password}:
+    get:
+      tags:
+      - "Member"
+      summary: "login a  member to the Library"
+      description: "logging new member"
+      operationId: "loginMember"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "loginMember"
+       
+        description: "Member object that needs to be authenticated to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Member"
+      responses:
+        "200":
+          description: "member login successfully"
+          
+          
+  
+  /getAllMembers:
+    get:
+      tags:
+      - "Member"
+      summary: "to get all Members in the library"
+      description: "all members"
+      operationId: "getAllMembers"
+      parameters:
+      - in: "body"
+        name: "addBook"
+        description: "to display all the members in the library"
+        required: true
+        schema:
+          $ref: "#/definitions/Member"
+      responses:
+        "200":
+          description: "all members are printing"  
+          
+          
+          
+          
+  /updateMember:
+    post:
+      tags:
+      - "Member"
+      summary: "Update an existing Member"
+      description: "updating Member"
+      operationId: "updateMember"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "updateMember"
+        description: "Member object that needs to be updated to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Member"
+      responses:
+        "200":
+          description: "Member updated successfully"
+          
+          
+          
+          
+  /deleteMember/{memberId}:
+    delete:
+      tags:
+      - "Member"
+      summary: "delete a member to the Library"
+      description: "deleting member"
+      operationId: "deleteMember"
+     
+      parameters:
+      - in: "body"
+        name: "deleteMember"
+        description: "menber object that needs to be deleted to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Member"
+      responses:
+        "200":
+          description: "Member deleted successfully"
+          
+          
+          
+          
+  /getAMember/{memberId}:
+    get:
+      tags:
+      - "Member"
+      summary: "to get a  Member from the Library"
+      description: "getting Member"
+      operationId: "getAMember"
+    
+      parameters:
+      - in: "body"
+        name: "getAMember"
+        description: "Member object that needs to be get from the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/Member"
+      responses:
+        "200":
+          description: "a Member is printing"
+          
+          
+          
+          
+          
+  /issueBook:
+    post:
+      tags:
+      - "IssueReturn"
+      summary: "issue a  book from the Library to Member"
+      description: "issuing book"
+      operationId: "issueBook"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "issueBook"
+        description: "book object that needs to be issue from the Library to the Member"
+        required: true
+        schema:
+          $ref: "#/definitions/IssueReturn"
+      responses:
+        "200":
+          description: "book issued successfully"
+          
+          
+          
+          
+          
+  /returnBook:
+    post:
+      tags:
+      - "IssueReturn"
+      summary: "return a  book from the Member to Library"
+      description: "returning book"
+      operationId: "returnBook"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "returnBook"
+        description: "book object that needs to be return from Member to the Library"
+        required: true
+        schema:
+          $ref: "#/definitions/IssueReturn"
+      responses:
+        "200":
+          description: "book returned successfully"
+          
+          
+          
+          
+  /checkAlreadyIssued:
+    post:
+      tags:
+      - "IssueReturn"
+      summary: "checking the book is issued by the member or not"
+      description: "checking the issued book"
+      operationId: "checkAlreadyIssued"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "checkAlreadyIssued"
+        description: "book object that needs to be checked from the Library before issuing to the Member"
+        required: true
+        schema:
+          $ref: "#/definitions/IssueReturn"
+      responses:
+        "200":
+          description: "book Checked successfully"
+          
+          
+          
+          
+  /myIssuedBooks/{memberId}:
+    get:
+      tags:
+      - "IssueReturn"
+      summary: "Member issued books"
+      description: "Member issued books"
+      operationId: "myIssuedBooks"
+      consumes:
+      - "application/json"
+      
+      produces:
+     
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "addBook"
+        description: "books which are issued by a particular member"
+        required: true
+        schema:
+          $ref: "#/definitions/IssueReturn"
+      responses:
+        "200":
+          description: "member issued books displayed successfully"
+          
+
+        definitions:
+  Books:
+    type: "object"
+    properties:
+        bookId:
+        type: "string"
+         bookName:
+        type: "string"
+         author:
+        type: "string"
+        bookCount:
+        type: "integer"
+        format: "int64"
+        json:
+        name:"Books"
+        
+  Member:
+    type: "object"
+    properties:
+        memberId:
+        type: "integer"
+        format: "int64"
+         name:
+        type: "string"
+         password:
+        type: "string"
+        email:
+        type: "string"
+        phoneNumnber:
+        type: "string"
+        json:
+        name:"Member"
+        
+        
+  IssueReturn:
+    id:
+        type: "integer"
+        format: "int64"
+        issueDate:
+         type: "string"
+        format: "date-time"
+        returnDate:
+         type: "string"
+        format: "date-time"
+        bookId:
+        type: "string"
+        memberId:
+        type: "integer"
+         json:
+         name:"IssueReturn"
+        
+        
+        
+        
+        
+          
+          definitions:
+  Books:
+    type: "object"
+    properties:
+        bookId:
+        type: "string"
+         bookName:
+        type: "string"
+         author:
+        type: "string"
+        bookCount:
+        type: "integer"
+        format: "int64"
+        json:
+        name:"Books"
+        
+  Member:
+    type: "object"
+    properties:
+        memberId:
+        type: "integer"
+        format: "int64"
+         name:
+        type: "string"
+         password:
+        type: "string"
+        email:
+        type: "string"
+        phoneNumnber:
+        type: "string"
+        json:
+        name:"Member"
+        
+        
+  IssueReturn:
+    id:
+        type: "integer"
+        format: "int64"
+        issueDate:
+         type: "string"
+        format: "date-time"
+        returnDate:
+         type: "string"
+        format: "date-time"
+        bookId:
+        type: "string"
+        memberId:
+        type: "integer"
+         json:
+         name:"IssueReturn"
+        
+        
+        
+  
+          
+          
+          
+          
+     
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+     
+  
+  
+          
+          
+    
+          
+
+            
+          
+          
+  
+    
+          
+
+ 
